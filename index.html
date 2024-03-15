@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+
+            <div class="container-fluid">
+
+                <a class="navbar-brand" href="#">
+                    <img src="imgs/Mandoob-logos_black.png" alt="Logo" width="30" height="24"
+                        class="d-inline-block align-text-top">
+                    <span>Mandoob</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end " style="margin-right: 90px;" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Login/Singup</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Order
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+
+            <div id="carouselExampleCaptions" class="carousel slide " data-bs-ride="carousel">
+
+                <div class="carousel-indicators">
+
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="imgs/slider-imgs/img-1.png" class="d-block w-100" height="500px" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Text</h5>
+                            <p>Some representative placeholder content for the first slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imgs/slider-imgs/img-2.jpg" class="d-block w-100" height="500px" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Second slide label</h5>
+                            <p>Some representative placeholder content for the second slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imgs/slider-imgs/img-3.jpg" class="d-block w-100" height="500px" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Third slide label</h5>
+                            <p>Some representative placeholder content for the third slide.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <div class="container mt-4">
+            <div class="row g-2">
+
+                <div class="col-md-6">
+
+                    <div class="card">
+
+                        <div class="d-flex justify-content-center">
+                            <img src="imgs/card-imgs/van.png" class="card-img-center img-fluid"
+                                style="width: 90px; height: 90px;" alt="...">
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">Your Orders</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
+                                the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="card">
+
+                        <div class="d-flex justify-content-center">
+                            <img src="imgs/card-imgs/burger.png" class="card-img-center img-fluid"
+                                style="width: 90px; height: 90px;" alt="...">
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">Order form here</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
+                                the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="card">
+
+                        <div class="d-flex justify-content-center">
+                            <img src="imgs/card-imgs/profile.png" class="card-img-center img-fluid"
+                                style="width: 90px; height: 90px;" alt="...">
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">Login / signup</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
+                                the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="card">
+
+                        <div class="d-flex justify-content-center">
+                            <img src="imgs/card-imgs/email.png" class="card-img-center img-fluid"
+                                style="width: 90px; height: 90px;" alt="...">
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">Contact us</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
+                                the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+        </div>
+
+    </main>
+
+    <hr>
+    <footer class="footer" style="margin-top: 40px;">
+
+        <div class="container">
+
+            <div class="row">
+            
+                <div class="col-md-4">
+                    <h4>About Us</h4>
+                    <p>Mandoob is a website for food delivery</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h4>Links</h4>
+
+                    <table>
+                        <tr>
+                            <td><a href="#"><img src="imgs/icons8-instagram-64.png" alt="insta-account" width="22"
+                                        height="20"></a></td>
+                            <td><a href="#"><img src="imgs/icons8-email-50.png" alt="email-account" width="22"
+                                        height="20"></a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#"><img src="imgs/icons8-twitter-50.png" alt="twitter-account" width="22"
+                                        height="20"></a></td>
+                            <td><a href="#"><img src="imgs/icons8-facebook-50.png" alt="insta-account" width="22"
+                                        height="20"></a></td>
+                        </tr>
+                    </table>
+
+                </div>
+                
+                <div class="col-md-4">
+                    <h4>Contact Us</h4>
+                    <p>123 Musct Seeb, SQU</p>
+                    <p>Email: Mandoob@gmail.com</p>
+                    <p>Phone: 99221133</p>
+                </div>
+
+            </div>
+            
+            <div class="row mt-3">
+                <div class="col-md-12 text-center">
+                    <p>&copy; 2024 Mandoob. All rights reserved.</p>
+                </div>
+            </div>
+        
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
