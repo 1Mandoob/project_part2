@@ -1,0 +1,26 @@
+.centralize {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#custom_btn
+{
+    background-color: rgb(101, 97, 97);
+    width: inherit;
+    border-color: white;
+}
+
+#custom_btn:hover
+{
+    background-color: white;
+    width: inherit;
+    border-color: black;
+    color: black;
+}
+
+
+#card_custom-style
+{
+    border-radius: 4px;
+}
