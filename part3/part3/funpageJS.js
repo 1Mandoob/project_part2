@@ -138,7 +138,7 @@ function click_card(card) {
 
 let strating_counter = 5;
 
-
+// change the content every second
 let countStaring = setInterval(function () {
 
     // decrease the number of the timer
