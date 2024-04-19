@@ -1,0 +1,40 @@
+.font1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+}
+
+*{
+    font-style: oblique;
+}
+p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+p.em{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.centralize {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#custom_btn
+{
+    background-color: rgb(101, 97, 97);
+    width: inherit;
+    border-color: white;
+}
+
+#custom_btn:hover
+{
+    background-color: white;
+    width: inherit;
+    border-color: black;
+    color: black;
+}
+
+
+#card_custom-style
+{
+    border-radius: 4px;
+}
