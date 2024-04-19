@@ -7,13 +7,13 @@ function create_CardStyle(src, color) {
 
 
 var cards_style = [
-    create_CardStyle("imgs/game-imgs/burger.jpg", "rgb(120, 120, 196)"),
-    create_CardStyle("imgs/game-imgs/masha.jpg", "rgb(125, 243, 102)"),
-    create_CardStyle("imgs/game-imgs/cheese.jpeg", "rgb(209, 160, 26)"),
+    create_CardStyle("imgs/gameImgs/burger.jpg", "rgb(120, 120, 196)"),
+    create_CardStyle("imgs/gameImgs/masha.jpg", "rgb(125, 243, 102)"),
+    create_CardStyle("imgs/gameImgs/cheese.jpeg", "rgb(209, 160, 26)"),
 
-    create_CardStyle("imgs/game-imgs/wha.jpeg", "rgb(45, 154, 68)"),
-    create_CardStyle("imgs/game-imgs/donate.jpg", "rgb(171, 18, 74)"),
-    create_CardStyle("imgs/game-imgs/fires.jpg", "rgb(171, 18, 153)")
+    create_CardStyle("imgs/gameImgs/wha.jpeg", "rgb(45, 154, 68)"),
+    create_CardStyle("imgs/gameImgs/donate.jpg", "rgb(171, 18, 74)"),
+    create_CardStyle("imgs/gameImgs/fires.jpg", "rgb(171, 18, 153)")
 ];
 
 
@@ -138,7 +138,7 @@ function click_card(card) {
 
 let strating_counter = 5;
 
-
+// change the content every second
 let countStaring = setInterval(function () {
 
     // decrease the number of the timer
@@ -158,7 +158,7 @@ let countStaring = setInterval(function () {
 
             card.style.border = "5px solid black";
             img.style.border = "5px solid black";
-            img.src = "imgs/game-imgs/question-sign-2.png";
+            img.src = "imgs/gameImgs/question-sign-2.png";
 
 
             // adding the event of cliking for the cards:
@@ -199,7 +199,7 @@ let countStaring = setInterval(function () {
 
                     card.style.border = "5px solid black";
                     img.style.border = "5px solid black";
-                    img.src = "imgs/game-imgs/question-sign-2.png";
+                    img.src = "imgs/gameImgs/question-sign-2.png";
                 }
 
 
@@ -207,7 +207,7 @@ let countStaring = setInterval(function () {
                 document.getElementById("timer").style.color = "red";
 
                 if (total_points == 12) {
-                    var discount_number = "#" + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10);
+                    var discount_number = 77898;
 
                     alert("You win a discount: " + discount_number);
                 }
