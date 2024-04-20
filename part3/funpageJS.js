@@ -206,7 +206,8 @@ let countStaring = setInterval(function () {
                 document.getElementById("timer").innerHTML = "Finish";
                 document.getElementById("timer").style.color = "red";
 
-                if (total_points == 12) {
+                // If you win you will get a discount code for your purchases
+                if (total_points == 6) {
                     var discount_number = 77898;
 
                     alert("You win a discount: " + discount_number);
