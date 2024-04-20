@@ -206,7 +206,7 @@ let countStaring = setInterval(function () {
                 document.getElementById("timer").innerHTML = "Finish";
                 document.getElementById("timer").style.color = "red";
 
-                // provide a dicsound purchases if the user win the game
+                // provide a discount for the purchase if the user wins the game:               
                 if (total_points == 6) {
                     var discount_number = 77898;
 
