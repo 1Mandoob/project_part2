@@ -81,27 +81,6 @@
 
     <?php
 
-    class User
-    {
-        public $u_id;
-        public $u_email;
-        public $u_password;
-        public $u_phone;
-        function __construct($u_id, $u_email, $u_password, $u_phone)
-        {
-            $this->u_id = $u_id;
-            $this->u_email = $u_email;
-            $this->u_password = $u_password;
-            $this->u_phone = $u_phone;
-        }
-    }
-
-
-
-    $ADMIN_EMAIL = "ADMIN@ADMIN";
-    $ADMIN_PASSWORD = "ADMIN";
-
-
     // Database connection
     $servername = "localhost";
     $username = "root";
@@ -118,69 +97,14 @@
     }
 
 
-    // Get POST data
-    $email = $_POST['email_input'];
-    $password = $_POST['password_input'];
+    $u_id = $_GET["user_id"];
 
-
-    if($email == $ADMIN_EMAIL && $password == $ADMIN_PASSWORD) 
-    {
-        $sql = "SELECT * FROM users";
-    }
-
-    else
-    {
-        $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
-    }
-
+    $sql = "DELETE FROM Users WHERE user_id = $u_id";
     $result = mysqli_query($conn, $sql);
-    $users = array();
 
-    if(mysqli_num_rows($result) <= 0 && !($email == $ADMIN_EMAIL && $password == $ADMIN_PASSWORD))
-    {
-        echo "<script>alert('There is no such user');</script>";
-    }
-
-    else
-    {
-        if (mysqli_num_rows($result) > 0) {
-
-            while ($row = mysqli_fetch_assoc($result)) 
-            { 
-                $user = new User($row['user_id'], $row['email'], $row['password'], $row['phone']);
-                array_push($users, $user);
-            }
-        }
-
-        
-        function displayUsers($users)
-        {
-            echo "<div style='margin: 0 10px;'>";
-
-            echo "<table border = 'border' cellpadding = 5px style = 'border-collapse: collapse; width: 100%;'>";
-            echo "<tr> <th> User id </th> <th> email </th> <th>password</th> <th>phone</th> <th>Delete</th> <th>Edit</th> </tr>";
-            
-            foreach ($users as $user) {
-                echo "<tr>";
-                echo "<td>" . $user->u_id . "</td>";
-                echo "<td>" . $user->u_email . "</td>";
-                echo "<td>" . $user->u_password . "</td>";
-                echo "<td>" . $user->u_phone . "</td>";
-
-                echo "<td><a href='delete_user.php?user_id=" . $user->u_id . "'>Delete</a></td>";
-                echo "<td><a href='edit_user.php?user_id=" . $user->u_id . "'>Edit</a></td>";
-
-                
-                echo "</tr>";
-            }
-
-            echo "</table>";
-            echo "</div>";
-        }
-
-        displayUsers($users);
-    }
-
+    echo "<script>alert('User with deleted with successfully');</script>";
+    echo "<script>window.location.href = '../index.html';</script>";
+    
     mysqli_close($conn); 
     
     ?>

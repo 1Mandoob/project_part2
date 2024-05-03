@@ -49,6 +49,10 @@
         $sql = "INSERT INTO Users (email, password, phone) VALUES ('$email', '$u_password', '$phone')";
         $result = mysqli_query($conn, $sql);
 
+        
+        echo "<script>alert('User with Add successfully');</script>";
+        echo "<script>window.location.href = '../index.html';</script>";
+        
         mysqli_close($conn);
     }
 
