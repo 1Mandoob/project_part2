@@ -139,6 +139,7 @@
     if(mysqli_num_rows($result) <= 0 && !($email == $ADMIN_EMAIL && $password == $ADMIN_PASSWORD))
     {
         echo "<script>alert('There is no such user');</script>";
+        echo "<script>window.location.href = '../index.html';</script>";
     }
 
     else
