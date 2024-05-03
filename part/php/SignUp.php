@@ -5,7 +5,7 @@
     <?php
 
     $email = $_POST["email"];
-    $password = $_POST["password"];
+    $u_password = $_POST["password"];
     $confirm_password = $_POST["confirm_password"];
     $phone = $_POST["phone"];
 
@@ -15,12 +15,12 @@
     {
         echo "<script>alert('Invalid email');</script>";
     } 
-    else if ($password != $confirm_password) {
+    else if ($u_password != $confirm_password) {
         echo "<script>alert('Passwords don't match');</script>";
     } 
     
     // check if the phone is digits:
-    else if (ctype_digit($phone)) 
+    else if (!ctype_digit($phone)) 
     {
         echo "<script>alert('Invalid phone number');</script>";
     } 
@@ -32,7 +32,7 @@
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "MandoobDB";
+        $dbname = "mandoob_db_test";
 
 
         // 1- Create connection
@@ -46,7 +46,7 @@
         }
 
         // Insert the data into the table Users in the Database: MandoobDB.
-        $sql = "INSERT INTO Users (email, password, phone) VALUES ('$email', '$password', '$phone')";
+        $sql = "INSERT INTO Users (email, password, phone) VALUES ('$email', '$u_password', '$phone')";
         $result = mysqli_query($conn, $sql);
 
         mysqli_close($conn);
