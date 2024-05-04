@@ -10,25 +10,21 @@
     $phone = $_POST["phone"];
 
     // Validate the inputs
-
-    if (strpos($email, '@') === false) 
-    {
+    
+    if (strpos($email, '@') === false) {
         echo "<script>alert('Invalid email');</script>";
-    } 
-    else if ($u_password != $confirm_password) {
-        echo "<script>alert('Passwords don't match');</script>";
-    } 
-    
+    } else if ($u_password != $confirm_password) {
+        echo "<script> alert('Passwords dont match'); </script>";
+    }
+
     // check if the phone is digits:
-    else if (!ctype_digit($phone)) 
-    {
+    else if (!ctype_digit($phone)) {
         echo "<script>alert('Invalid phone number');</script>";
-    } 
-    
+    }
+
     // Store the data in the Data Base:
-    else 
-    {
-     
+    else {
+
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -40,24 +36,25 @@
 
 
         // 2- Check connection 
-        if (!$conn) 
-        {
+        if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
 
         // Insert the data into the table Users in the Database: MandoobDB.
-        $sql = "INSERT INTO Users (email, password, phone) VALUES ('$email', '$u_password', '$phone')";
+        $sql = "INSERT INTO Users (Email, Password, Phone) VALUES ('$email', '$u_password', '$phone')";
         $result = mysqli_query($conn, $sql);
 
-        
-        echo "<script>alert('User with Add successfully');</script>";
-        echo "<script>window.location.href = '../index.html';</script>";
-        
+
+        echo "<script>alert('User Add successfully');</script>";
         mysqli_close($conn);
     }
+
+
+    echo "<script>window.location.href = '../sign_up.html';</script>";
 
     ?>
 
 
 </body>
+
 </html>

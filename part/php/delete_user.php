@@ -103,8 +103,7 @@
     $result = mysqli_query($conn, $sql);
 
     echo "<script>alert('User with deleted with successfully');</script>";
-    echo "<script>window.location.href = '../index.html';</script>";
-    
+    echo "<script>window.location.href = '../log_in.html';</script>";
     mysqli_close($conn); 
     
     ?>

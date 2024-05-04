@@ -14,8 +14,10 @@
     
     if (strpos($email, '@') === false) {
         echo "<script>alert('Invalid email');</script>";
-    } else if ($u_password != $confirm_password) {
-        echo "<script>alert('Passwords don't match');</script>";
+    } 
+    
+    else if ($u_password != $confirm_password) {
+        echo "<script>alert('Passwords dont match');</script>";
     }
 
     // check if the phone is digits:
@@ -43,17 +45,18 @@
 
         // update the data into the table Users in the Database: MandoobDB.
 
-        $sql = "UPDATE users SET email = '$email', password = '$u_password', phone = '$phone' WHERE user_id = '$user_id' ;";
+        $sql = "UPDATE users SET Email = '$email', Password = '$u_password', Phone = '$phone' WHERE user_id = '$user_id' ;";
         
         $result = mysqli_query($conn, $sql);
 
 
         echo "<script>alert('User with id: ".$user_id." updated successfully');</script>";
-        echo "<script>window.location.href = '../index.html';</script>";
 
         mysqli_close($conn);
     }
 
+    
+    echo "<script>window.location.href = '../log_in.html';</script>";
     ?>
 
 

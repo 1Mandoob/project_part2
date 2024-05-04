@@ -130,7 +130,7 @@
 
     else
     {
-        $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+        $sql = "SELECT * FROM users WHERE Email = '$email' AND Password = '$password'";
     }
 
     $result = mysqli_query($conn, $sql);
@@ -139,7 +139,7 @@
     if(mysqli_num_rows($result) <= 0 && !($email == $ADMIN_EMAIL && $password == $ADMIN_PASSWORD))
     {
         echo "<script>alert('There is no such user');</script>";
-        echo "<script>window.location.href = '../index.html';</script>";
+        echo "<script>window.location.href = '../log_in.html';</script>";
     }
 
     else
@@ -148,7 +148,7 @@
 
             while ($row = mysqli_fetch_assoc($result)) 
             { 
-                $user = new User($row['user_id'], $row['email'], $row['password'], $row['phone']);
+                $user = new User($row['user_id'], $row['Email'], $row['Password'], $row['Phone']);
                 array_push($users, $user);
             }
         }

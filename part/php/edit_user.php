@@ -134,7 +134,7 @@
 
 
     $row = mysqli_fetch_assoc($result);
-    $user = new User($row['user_id'], $row['email'], $row['password'], $row['phone']);
+    $user = new User($row['user_id'], $row['Email'], $row['Password'], $row['Phone']);
 
 
     echo "  <div class='container mt-4 centralize'>

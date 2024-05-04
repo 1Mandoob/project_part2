@@ -87,7 +87,7 @@
         <div class="container">
             <h1>Customer Feedback Questionnaire</h1>
             <!-- Form for the questionnaire -->
-            <form id="questionnaireForm">
+            <form id="questionnaireForm" method="post" action="php/questionnaire.php" >
                 <!-- Form groups for each input -->
                 <div class="form-group">
                     <label for="name">Name:</label>
@@ -100,7 +100,7 @@
                 <div class="form-group">
                     <label>Rate our service:</label><br>
                     <!-- Radio buttons for rating -->
-                    <input type="radio" id="excellent" name="rating" value="excellent"> <label for="excellent">Excellent</label><br>
+                    <input type="radio" id="excellent" name="rating" value="excellent" checked = "checked"> <label for="excellent">Excellent</label><br>
                     <input type="radio" id="good" name="rating" value="good"> <label for="good">Good</label><br>
                     <input type="radio" id="average" name="rating" value="average"> <label for="average">Average</label><br>
                     <input type="radio" id="poor" name="rating" value="poor"> <label for="poor">Poor</label>
@@ -120,7 +120,7 @@
         </div>
 
         <!-- Link to the external JavaScript file -->
-        <script src="questionnaire.js"></script>
+        <!-- <script src="questionnaire.js"></script> -->
     </main>
 
     <!-- Footer section -->
