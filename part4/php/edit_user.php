@@ -132,11 +132,11 @@
     $sql = "SELECT * FROM users WHERE user_id = '$u_id'";
     $result = mysqli_query($conn, $sql);
 
-
+    // get the user data and create object
     $row = mysqli_fetch_assoc($result);
     $user = new User($row['user_id'], $row['Email'], $row['Password'], $row['Phone']);
 
-
+    // print the ui
     echo "  <div class='container mt-4 centralize'>
 
     <div class='row' style='height: 400px;'>

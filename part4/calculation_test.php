@@ -199,6 +199,7 @@ session_start();
                         die("Connection failed: " . mysqli_connect_error());
                     }
 
+                    // select the items with curr user id
                     $sql = "SELECT * FROM items WHERE user_id = '$user_id'";
                     $result = mysqli_query($conn, $sql);
 
@@ -218,8 +219,7 @@ session_start();
                         }
                     }
 
-
-
+                    // get the data from the table
                     if (mysqli_num_rows($result) > 0) {
 
                         while ($row = mysqli_fetch_assoc($result)) {
@@ -228,9 +228,7 @@ session_start();
                         }
                     }
 
-
-
-
+                    // loop thorugh the items
                     function displayItems($items)
                     {
                         foreach ($items as $item) {

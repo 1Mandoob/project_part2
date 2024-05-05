@@ -120,9 +120,11 @@
     $email = $_POST['email_input'];
     $password = $_POST['password_input'];
 
+    // if admin select all the data:
 
     if ($email == $ADMIN_EMAIL && $password == $ADMIN_PASSWORD) {
 
+        // This for  deleting the prev session variables 
         
         // Start the session
         session_start();
@@ -138,6 +140,9 @@
         $sql = "SELECT * FROM users WHERE Email = '$email' AND Password = '$password'";
 
         echo "yes";
+
+        
+        // This for  deleting the prev session variables
 
         // Start the session
         session_start();
@@ -162,10 +167,13 @@
     $result = mysqli_query($conn, $sql);
     $users = array();
 
+    // check if there is no user and he is not the admin 
     if (mysqli_num_rows($result) <= 0 && !($email == $ADMIN_EMAIL && $password == $ADMIN_PASSWORD)) {
         echo "<script>alert('There is no such user');</script>";
         echo "<script>window.location.href = '../log_in.html';</script>";
-    } else {
+    } 
+    else {
+        
         if (mysqli_num_rows($result) > 0) {
 
             while ($row = mysqli_fetch_assoc($result)) {
@@ -175,6 +183,8 @@
         }
 
 
+
+        // print the users in a table
         function displayUsers($users)
         {
             echo "<div style='margin: 0 10px;'>";

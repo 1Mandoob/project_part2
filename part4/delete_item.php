@@ -15,9 +15,10 @@ if (!$conn) {
 }
 
 
+// get the item id
 $item_id = $_POST['item_id'];
 
-
+// delete it from the data base
 $sql = "DELETE FROM Items WHERE item_id = $item_id";
 $result = mysqli_query($conn, $sql);
 
