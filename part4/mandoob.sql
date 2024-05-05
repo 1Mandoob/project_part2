@@ -52,7 +52,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `Email`, `Password`, `Phone`) VALUES
-(0, 's140476@student.squ.edu.om', '123', '99578554');
+(0, 'osama@gmail.com', '123', '99578554');
 
 -- --------------------------------------------------------
 
