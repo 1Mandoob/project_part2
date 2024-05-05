@@ -1,9 +1,9 @@
 <html>
-    <head>
+    head>
     <!-- Meta tags for character set and viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Um haddel</title>
+    <title>Bun Truck</title>
     <link rel="stylesheet" href="singup_login.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -12,13 +12,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="calc.js"></script>
 </head>
 
 <body>
-    
     <script type="text/javascript">
-        
         var name;
         var price;
         var src;
@@ -27,15 +24,19 @@
     this.price = price;
     this.src = src;
     }
-    const foods = [new food("Harres", 2.5, "imgs/food_content/Am_hadeel/ha.jpeg"), 
-                  new food("grape leaves", 3, "imgs/food_content/Am_hadeel/MAh.jpg"),
-                   new food("Sambosa", 0.5, "imgs/food_content/Am_hadeel/sa.jpg"), 
-                   new food("Shawarma", 1, "imgs/food_content/Am_hadeel/sha.jpg"), 
-                   new food("Fattah",1.5, "imgs/food_content/Am_hadeel/wa.jpg")]
+    const foods = [
+    new food("Chocolate Cake", 2.5, "imgs/food_content/bun/cake.jpg"),
+    new food("Cheese Cake", 1.5, "imgs/food_content/bun/cheese.jpeg"),
+    new food("Donate", 3.5, "imgs/food_content/bun/donate.jpg"),
+    new food("Ice cream", 0.3, "imgs/food_content/bun/ice.webp"),
+    new food("Whaffle", 1, "imgs/food_content/bun/wha.jpeg"),
+    new food("SanSpastian", 1.5, "imgs/food_content/bun/sans.jpg")
+];
+
+
+
     
     </script>
-    
-    
 
 
     <header>
@@ -76,7 +77,7 @@
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="calculation.php">Bill</a>
+                            <a class="nav-link" href="calculation_test.php">Bill</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="questionnaire.html">questionnaire</a>
@@ -102,9 +103,6 @@
                 </div>
             </div>
         </nav>
-
-
-
     </header>
 
     
@@ -117,11 +115,11 @@
                 <div class="card">
                     <div class="row">
                         <div class="col-md-4">
-                    <div class="card-imgs"> <img  src="imgs/food_content/Am_hadeel/OM.jpg" alt=".."  height="400px" width="400px"></div>
+                    <div class="card-imgs"> <img  src="imgs/food_content/bun/bun_truck.jpg" alt=".."  height="400px" width="400px"></div>
                     </div>
                          <div class="col-md-6">
                     <div class="card-title"> 
-                        <h1 class="display-1" style="padding-top: 100px; margin-left: 50px;">OM Hadeel</h1>
+                        <h1 class="display-1" style="padding-top: 100px; margin-left: 50px;">Bun truck</h1>
                     
                     </div>
                  </div>
@@ -141,16 +139,23 @@
                     <div class="card">
 
                         <div class="d-flex justify-content-center">
-                            <img src="imgs/food_content/Am_hadeel/ha.jpeg" class="card-img-center img-fluid"
+                            <img src="imgs/food_content/bun/cake.jpg" class="card-img-center img-fluid"
                                 style="width: 200px; height: 200px;" alt="...">
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title">Harres</h5>
-                            <p class="card-text"></p>
+                            <h5 class="card-title">Chocolate Cake</h5>
+                            <p class="card-text">Very sweety cake, espicially when it coverd by Chocolate Sauce</p>
                             <h6>Only for: 2.5 OMR</h6>
-<!-- Inside the button element -->
-                            <button type="button" class="btn btn-primary" value="2.5" onclick="addToCart('Harres',2.5)">Add to cart</button>
+
+                            <form action="addToBill.php" method="post">
+                            
+                            <button type="submit" class="btn btn-primary" value="1"> Add to cart</button>
+                            <input type="hidden" name = "price" value="2.5">
+                            <input type="hidden" name="mealName" value="Chocolate Cake">
+
+                            </form>
+
                         </div>
                     </div>
 
@@ -160,37 +165,22 @@
                     <div class="card">
 
                         <div class="d-flex justify-content-center">
-                            <img src="imgs/food_content/Am_hadeel/MAh.jpg" class="card-img-center img-fluid"
+                            <img src="imgs/food_content/bun/cheese.jpeg" class="card-img-center img-fluid"
                                 style="width: 200px; height: 200px;" alt="...">
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title">grape leaves</h5>
-                            <p class="card-text"></p>
-                            <h6>Only for: 3 OMR</h6>
-                            <!-- Inside the button element -->
-<button type="button" class="btn btn-primary" value="2.5" onclick="addToCart('grape leaves',3)">Add to cart</button>
+                            <h5 class="card-title">Cheese Cake</h5>
+                            <p class="card-text">Taste it and judge it</p>
+                            <h6>Only for: 1.5 OMR</h6>
+                            
+                            <form action="addToBill.php" method="post">
+                            
+                            <button type="submit" class="btn btn-primary" value="1"> Add to cart</button>
+                            <input type="hidden" name = "price" value="1.5">
+                            <input type="hidden" name="mealName" value="Cheese Cake">
 
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-md-6">
-
-                    <div class="card">
-
-                        <div class="d-flex justify-content-center">
-                            <img src="imgs/food_content/Am_hadeel/sa.jpg" class="card-img-center img-fluid"
-                                style="width: 200px; height: 200px;" alt="...">
-                        </div>
-
-                        <div class="card-body">
-                            <h5 class="card-title">Sambosa</h5>
-                            <p class="card-text"></p>
-                            <h6>Only for: 0.5 OMR</h6>
-                            <!-- Inside the button element -->
-<button type="button" class="btn btn-primary" value="2.5" onclick="addToCart('Sambosa',0.5)">Add to cart</button>
+                            </form>
 
                         </div>
                     </div>
@@ -202,43 +192,110 @@
                     <div class="card">
 
                         <div class="d-flex justify-content-center">
-                            <img src="imgs/food_content/Am_hadeel/sha.jpg" class="card-img-center img-fluid"
+                            <img src="imgs/food_content/bun/donate.jpg" class="card-img-center img-fluid"
                                 style="width: 200px; height: 200px;" alt="...">
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title">Shawarma</h5>
+                            <h5 class="card-title">Donate</h5>
+                            <p class="card-text">Taste all Flavours</p>
+                            <h6>Only for: 3.5 OMR</h6>
+
+                            <form action="addToBill.php" method="post">
+                            
+                            <button type="submit" class="btn btn-primary" value="1"> Add to cart</button>
+                            <input type="hidden" name = "price" value="3.5">
+                            <input type="hidden" name="mealName" value="Donate">
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="card">
+
+                        <div class="d-flex justify-content-center">
+                            <img src="imgs/food_content/bun/ice.webp" class="card-img-center img-fluid"
+                                style="width: 200px; height: 200px;" alt="...">
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">Ice cream</h5>
+                            <p class="card-text">Choose your favourit flavour</p>
+                            <h6>Only for: 0.3 OMR per One</h6>
+
+                            
+                            <form action="addToBill.php" method="post">
+                            
+                            <button type="submit" class="btn btn-primary" value="1"> Add to cart</button>
+                            <input type="hidden" name = "price" value="0.3">
+                            <input type="hidden" name="mealName" value="Ice cream">
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="card">
+
+                        <div class="d-flex justify-content-center">
+                            <img src="imgs/food_content/bun/wha.jpeg" class="card-img-center img-fluid"
+                                style="width: 200px; height: 200px;" alt="...">
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">Whaffle</h5>
+                            <p class="card-text">With the Orivginal honey</p>
+                            <h6>Only for: 1 OMR</h6>
+
+                            
+                            <form action="addToBill.php" method="post">
+                            
+                            <button type="submit" class="btn btn-primary" value="1"> Add to cart</button>
+                            <input type="hidden" name = "price" value="1">
+                            <input type="hidden" name="mealName" value="Whaffle">
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="card">
+
+                        <div class="d-flex justify-content-center">
+                            <img src="imgs/food_content/bun/sans.jpg" class="card-img-center img-fluid"
+                                style="width: 200px; height: 200px;" alt="...">
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">SanSpastian</h5>
                             <p class="card-text"></p>
-                            <h6>Only for: 1 OMR</h6><!-- Inside the button element -->
-                            <button type="button" class="btn btn-primary" value="2.5" onclick="addToCart('Shawarma',1)">Add to cart</button>
+                            <h6>Only for:1.5 OMR per One</h6>
+
+                            <form action="addToBill.php" method="post">
+                            
+                            <button type="submit" class="btn btn-primary" value="1"> Add to cart</button>
+                            <input type="hidden" name = "price" value="1.5">
+                            <input type="hidden" name="mealName" value="SanSpastian">
+
+                            </form>
                             
                         </div>
                     </div>
 
                 </div>
-
-                <div class="col-md-6">
-
-                    <div class="card">
-
-                        <div class="d-flex justify-content-center">
-                            <img src="imgs/food_content/Am_hadeel/wa.jpg" class="card-img-center img-fluid"
-                                style="width: 200px; height: 200px;" alt="...">
-                        </div>
-
-                        <div class="card-body">
-                            <h5 class="card-title">Fattah</h5>
-                            <p class="card-text"></p>
-                            <h6>Only for: 1.5 OMR</h6>
-                            <!-- Inside the button element -->
-<button type="button" class="btn btn-primary" value="2.5" onclick="addToCart('Fattah',1.5)">Add to cart</button>
-
-                        </div>
-                    </div>
-
-                </div>
-
-               
 
             </div>
 
@@ -299,106 +356,6 @@
         </div>
 
     </footer>
-    <script>
-            
-        document.getElementById('searchBox').addEventListener('submit', function(event) {
-event.preventDefault(); // Prevent the form from submitting and reloading the page
-
-// Get the user's search query
-var searchQuery = document.getElementById('searchInput').value.toLowerCase();
-
-// Filter the food items based on the search query
-var filteredFoodItems = foods.filter(function(item) {
-    return item.name.toLowerCase().includes(searchQuery);
-});
-
-// Clear the existing food items displayed on the page
-var foodItemsContainer = document.querySelector('.row.g-2');
-foodItemsContainer.innerHTML = '';
-
-// Display the filtered food items
-filteredFoodItems.forEach(function(item) {
-    var colDiv = document.createElement('div');
-    colDiv.classList.add('col-md-6');
-
-    var cardDiv = document.createElement('div');
-    cardDiv.classList.add('card');
-
-    var imageDiv = document.createElement('div');
-    imageDiv.classList.add('d-flex', 'justify-content-center');
-
-    var image = document.createElement('img');
-    image.src = item.src; // Assuming image names match food item names
-    image.classList.add('card-img-center', 'img-fluid');
-    image.style.width = '200px';
-    image.style.height = '200px';
-
-    var cardBody = document.createElement('div');
-    cardBody.classList.add('card-body');
-
-    var title = document.createElement('h5');
-    title.classList.add('card-title');
-    title.textContent = item.name;
-
-    var price = document.createElement('h6');
-    price.textContent = 'Only for: ' + item.price + ' OMR';
-
-    var addToCartBtn = document.createElement('button');
-
-
-    addToCartBtn.type = 'button'; // Add appropriate href
-    addToCartBtn.classList.add('btn', 'btn-primary');
-    addToCartBtn.textContent = 'Add to cart';
-    addToCartBtn.value = item.price;
-    addToCartBtn.onclick = function() {
-        addToCart(item.name, item.price);
-    };
-
-
-
-    
-    // Append elements to their respective parent elements
-    imageDiv.appendChild(image);
-    cardBody.appendChild(title);
-    cardBody.appendChild(price);
-    cardBody.appendChild(addToCartBtn);
-    cardDiv.appendChild(imageDiv);
-    cardDiv.appendChild(cardBody);
-    colDiv.appendChild(cardDiv);
-    foodItemsContainer.appendChild(colDiv);
-});
-});
-
-function addToCart(name, price) {
-    console.log("Adding to cart:", name, price);
-
-    // Create an object to hold the data to be sent
-    var data = {
-        itemName: name,
-        itemPrice: price
-    };
-
-    // Make a POST request to meal.php using AJAX
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "meal.php", true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            // Handle the response here if needed
-            console.log(xhr.responseText);
-        }
-    };
-
-    // Convert the data object to JSON before sending
-    xhr.send(JSON.stringify(data));
-
-    // Optionally, provide some visual feedback to the user that the item has been added to the cart
-    alert('Item added to cart!');
-}
-
-
-    </script>
 
 </body>
 
