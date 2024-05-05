@@ -19,62 +19,61 @@
 
     <header>
 
-    <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-        <div class="container-fluid font1">
-            <!-- Logo and brand name -->
-            <a class="navbar-brand" href="../index.html">
-                <img src="../imgs/icons/Mandoob-logos_black.png" alt="Logo" width="30" height="24"
-                    class="d-inline-block align-text-top">
-                <span>Mandoob</span>
-            </a>
-            <!-- Navbar toggle button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Navbar links -->
-            <div class="collapse navbar-collapse justify-content-end " style="margin-right: 90px;"
-                id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../aboutus.html">About us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../cntctus.html">Contact us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="../log_in.html">Login/Singup</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="../funpage.html">Game</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../calculation.html">Bill</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../questionnaire.html">questionnaire</a>
-                    </li>
+        <!-- Navigation bar -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+            <div class="container-fluid font1">
+                <!-- Logo and brand name -->
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../imgs/icons/Mandoob-logos_black.png" alt="Logo" width="30" height="24"
+                        class="d-inline-block align-text-top">
+                    <span>Mandoob</span>
+                </a>
+                <!-- Navbar toggle button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse justify-content-end " style="margin-right: 90px;" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../aboutus.html">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../cntctus.html">Contact us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="../log_in.html">Login/Singup</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="../funpage.html">Game</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../calculation.html">Bill</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../questionnaire.html">questionnaire</a>
+                        </li>
 
 
-                    <!-- Dropdown menu -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Order
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../trucks.html">Truck</a></li>
-                            <li><a class="dropdown-item" href="../HomeMade.html">HomeMade business</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                        <!-- Dropdown menu -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Order
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../trucks.html">Truck</a></li>
+                                <li><a class="dropdown-item" href="../HomeMade.html">HomeMade business</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
     </header>
     <br><br><br>
 
@@ -112,8 +111,7 @@
     $conn = mysqli_connect($servername, $username, $dbpassword, $dbname);
 
     // 2- Check connection 
-    if (!$conn) 
-    {
+    if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
@@ -123,44 +121,67 @@
     $password = $_POST['password_input'];
 
 
-    if($email == $ADMIN_EMAIL && $password == $ADMIN_PASSWORD) 
-    {
-        $sql = "SELECT * FROM users";
-    }
+    if ($email == $ADMIN_EMAIL && $password == $ADMIN_PASSWORD) {
 
-    else
-    {
+        
+        // Start the session
+        session_start();
+
+        // Unset all session variables
+        session_unset();
+
+        // Destroy the session
+        session_destroy();
+
+        $sql = "SELECT * FROM users";
+    } else {
         $sql = "SELECT * FROM users WHERE Email = '$email' AND Password = '$password'";
+
+        echo "yes";
+
+        // Start the session
+        session_start();
+
+        // Unset all session variables
+        session_unset();
+
+        // Destroy the session
+        session_destroy();
+
+        // Start a new session for the new login
+        session_start();
+
+        echo "endyes";
+
+        $result_uid = mysqli_query($conn, $sql);
+        $row_uid = mysqli_fetch_assoc($result_uid);
+
+        $_SESSION['user_id'] = $row_uid['user_id'];
     }
 
     $result = mysqli_query($conn, $sql);
     $users = array();
 
-    if(mysqli_num_rows($result) <= 0 && !($email == $ADMIN_EMAIL && $password == $ADMIN_PASSWORD))
-    {
+    if (mysqli_num_rows($result) <= 0 && !($email == $ADMIN_EMAIL && $password == $ADMIN_PASSWORD)) {
         echo "<script>alert('There is no such user');</script>";
         echo "<script>window.location.href = '../log_in.html';</script>";
-    }
-
-    else
-    {
+    } else {
         if (mysqli_num_rows($result) > 0) {
 
-            while ($row = mysqli_fetch_assoc($result)) 
-            { 
+            while ($row = mysqli_fetch_assoc($result)) {
                 $user = new User($row['user_id'], $row['Email'], $row['Password'], $row['Phone']);
                 array_push($users, $user);
             }
         }
 
-        
+
         function displayUsers($users)
         {
             echo "<div style='margin: 0 10px;'>";
 
             echo "<table border = 'border' cellpadding = 5px style = 'border-collapse: collapse; width: 100%;'>";
             echo "<tr> <th> User id </th> <th> email </th> <th>password</th> <th>phone</th> <th>Delete</th> <th>Edit</th> </tr>";
-            
+
             foreach ($users as $user) {
                 echo "<tr>";
                 echo "<td>" . $user->u_id . "</td>";
@@ -171,7 +192,7 @@
                 echo "<td><a href='delete_user.php?user_id=" . $user->u_id . "'>Delete</a></td>";
                 echo "<td><a href='edit_user.php?user_id=" . $user->u_id . "'>Edit</a></td>";
 
-                
+
                 echo "</tr>";
             }
 
@@ -182,8 +203,8 @@
         displayUsers($users);
     }
 
-    mysqli_close($conn); 
-    
+    mysqli_close($conn);
+
     ?>
 
 </body>

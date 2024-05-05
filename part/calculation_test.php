@@ -1,5 +1,9 @@
-<!DOCTYPE html>
 <html lang="en">
+
+
+<?php
+session_start();
+?>
 
 <head>
     <title>Checkout</title>
@@ -143,8 +147,6 @@
             // Reset discounted price to 0
             document.getElementById('discounted-price').textContent = '0';
         }
-
-
     </script>
 
 
@@ -210,16 +212,107 @@
     <div class="container">
 
         <h1>Bill</h1>
-    
+
         <!-- Inside the body of checkout.html -->
         <table id="bill-table">
             <thead>
                 <tr>
                     <th>Item</th>
                     <th>Price (OMR)</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
-            <tbody id="bill-table-body"></tbody>
+
+
+            <tbody id="bill-table-body">
+
+                <?php
+
+                // 
+                 // check if user is currently log in:
+                if (isset($_SESSION['user_id'])) {
+
+                    echo $_SESSION['user_id'];
+
+                    // Database connection
+                    $servername = "localhost";
+                    $username = "root";
+                    $dbpassword = "";
+                    $dbname = "mandoob_db_test";
+
+                    // 1- Create connection
+                    $conn = mysqli_connect($servername, $username, $dbpassword, $dbname);
+
+                    // 2- Check connection 
+                    if (!$conn) {
+                        die("Connection failed: " . mysqli_connect_error());
+                    }
+
+                    $sql = "SELECT * FROM bill WHERE user_id = '$user_id'";
+                    $result = mysqli_query($conn, $sql);
+
+                    $items = array();
+
+                    class Item
+                    {
+                        public $item_id;
+                        public $name;
+                        public $price;
+
+                        function __construct($item_id, $name, $price)
+                        {
+                            $this->item_id = $item_id;
+                            $this->name = $name;
+                            $this->price = $price;
+                        }
+                    }
+
+
+
+                    if (mysqli_num_rows($result) > 0) {
+
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $item = new Item($row['item_id'], $row['name'], $row['price']);
+                            array_push($items, $item);
+                        }
+                    }
+
+
+
+                    function displayItems($items)
+                    {
+                        foreach ($items as $item) {
+                            echo "<tr>";
+
+                            echo "<td>" . $item->name . "</td>";
+                            echo "<td>" . $item->price . "</td>";
+
+                            echo "
+                            <td>
+                            
+                            <form method='post' action='delete_item.php'>
+
+                            <input type='hidden' name='item_id' value='. $item->item_id .;'>
+                            <input type=submit' name='delete' value='Delete'>
+
+                            </form>            
+                            
+                            </td>";
+                            echo "</tr>";
+                        }
+
+                        echo "</table>";
+                        echo "</div>";
+                    }
+
+                    displayItems($items);
+                } 
+                else {
+                    echo "You need to Log in first (not as an Admin) !!";
+                }
+                ?>
+
+            </tbody>
         </table>
 
         <!-- Placeholder for total price -->
@@ -237,12 +330,12 @@
         <div class="order-btn">
             <button type="button" class="btn btn-secondary" onclick="resetPage()">Reset</button>
         </div>
-    
+
         <div class="order-btn">
             <button type="button" class="btn btn-secondary" onclick="deleteEntries()">Delete Entries</button>
         </div>
 
-    
+
     </div>
 </body>
 
