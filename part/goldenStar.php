@@ -3,7 +3,7 @@
     <!-- Meta tags for character set and viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>Golden Sweet</title>
     <link rel="stylesheet" href="singup_login.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -74,7 +74,7 @@
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="calculation.html">Bill</a>
+                            <a class="nav-link" href="calculation.php">Bill</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="questionnaire.html">questionnaire</a>
@@ -165,23 +165,37 @@
     });
     });
     
-    function addToCart(name, price) {
-        console.log("Adding to cart:", name, price);
-    
-        // Retrieve cart items from local storage or initialize an empty array
-        var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    
-        // Add the item's name and price to the cart
-        cartItems.push({ name: name, price: price });
-    
-        // Save the updated cart items to local storage
-        localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    
-        console.log("Cart items:", cartItems);
-    
-        // Optionally, provide some visual feedback to the user that the item has been added to the cart
-        alert('Item added to cart!');
-    }
+function addToCart(name, price) {
+    // Create an object to hold the data to be sent
+    var data = {
+        itemName: name,
+        itemPrice: price
+    };
+
+    // Make a POST request to addToBill.php using AJAX
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "addToBill.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Handle the response here if needed
+            console.log(xhr.responseText);
+            alert(xhr.responseText); // Alert the response for now
+        }
+    };
+
+    // Convert the data object to URL-encoded format before sending
+    var encodedData = Object.keys(data).map(function(key) {
+        return encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
+    }).join('&');
+
+    // Send the request with the encoded data
+    xhr.send(encodedData);
+}
+</script>
+
+
     
     
         </script>
@@ -213,7 +227,7 @@
         </div>
     </div>
     <main>
-
+        <form action="" method="post">
         <div class="container mt-4 font1">
             <div class="row g-2">
 
@@ -316,14 +330,13 @@
 
                 </div>
 
-
             </div>
 
 
         </div>
 
         </div>
-
+    </form>
     </main>
 
     <hr>
