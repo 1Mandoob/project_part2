@@ -76,7 +76,7 @@
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="calculation.html">Bill</a>
+                            <a class="nav-link" href="calculation.php">Bill</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="questionnaire.html">questionnaire</a>
@@ -367,16 +367,26 @@ filteredFoodItems.forEach(function(item) {
 function addToCart(name, price) {
     console.log("Adding to cart:", name, price);
 
-    // Retrieve cart items from local storage or initialize an empty array
-    var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    // Create an object to hold the data to be sent
+    var data = {
+        itemName: name,
+        itemPrice: price
+    };
 
-    // Add the item's name and price to the cart
-    cartItems.push({ name: name, price: price });
+    // Make a POST request to meal.php using AJAX
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "meal.php", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
 
-    // Save the updated cart items to local storage
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Handle the response here if needed
+            console.log(xhr.responseText);
+        }
+    };
 
-    console.log("Cart items:", cartItems);
+    // Convert the data object to JSON before sending
+    xhr.send(JSON.stringify(data));
 
     // Optionally, provide some visual feedback to the user that the item has been added to the cart
     alert('Item added to cart!');
