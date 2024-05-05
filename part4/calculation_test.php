@@ -172,6 +172,9 @@ session_start();
                 </tr>
             </thead>
 
+            <?php
+                $total_Price = 0;
+            ?>
 
             <tbody id="bill-table-body">
 
@@ -227,7 +230,6 @@ session_start();
 
 
 
-                    $total_Price = 0;
 
                     function displayItems($items)
                     {
