@@ -132,7 +132,7 @@ session_start();
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="calculation.html">Bill</a>
+                        <a class="nav-link" href="calculation_test.php">Bill</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="questionnaire.html">questionnaire</a>
