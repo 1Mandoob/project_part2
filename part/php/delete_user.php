@@ -85,7 +85,7 @@
     $servername = "localhost";
     $username = "root";
     $dbpassword = "";
-    $dbname = "mandoob_db_test";
+    $dbname = "mandoob";
 
     // 1- Create connection
     $conn = mysqli_connect($servername, $username, $dbpassword, $dbname);

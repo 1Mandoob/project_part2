@@ -31,7 +31,7 @@
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "mandoob_db_test";
+        $dbname = "mandoob";
 
 
         // 1- Create connection
