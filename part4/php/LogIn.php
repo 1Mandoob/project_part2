@@ -199,10 +199,21 @@
                 echo "<td>" . $user->u_password . "</td>";
                 echo "<td>" . $user->u_phone . "</td>";
 
-                echo "<td><a href='delete_user.php?user_id=" . $user->u_id . "'>Delete</a></td>";
-                echo "<td><a href='edit_user.php?user_id=" . $user->u_id . "'>Edit</a></td>";
 
-
+                echo "<td>
+                <form action='delete_user.php' method='post'>
+                    <input type='hidden' name='user_id' value='".$user->u_id."'>
+                    <input type='submit' value='Delete'>
+                </form>
+            </td>";
+            
+                echo "<td>
+                <form action='edit_user.php' method='post'>
+                    <input type='hidden' name='user_id' value='".$user->u_id."'>
+                    <input type='submit' value='Edit'>
+                </form>
+            </td>";
+            
                 echo "</tr>";
             }
 

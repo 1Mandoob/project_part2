@@ -127,7 +127,7 @@
 
 
 
-    $u_id = $_GET["user_id"];
+    $u_id = $_POST["user_id"];
 
     $sql = "SELECT * FROM users WHERE user_id = '$u_id'";
     $result = mysqli_query($conn, $sql);
